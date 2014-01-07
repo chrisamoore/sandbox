@@ -1,0 +1,111 @@
+---
+vagrantfile-local:
+    vm:
+        box: CentOS-6.4-x86_64-v20131103
+        box_url: 'http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box'
+        hostname: null
+        network:
+            private_network: 192.168.56.166
+            forwarded_port:
+                DUGcJIn6uJ40:
+                    host: ''
+                    guest: ''
+        provider:
+            virtualbox:
+                modifyvm:
+                    name: sandbox
+                    natdnshostresolver1: on
+                    memory: '2048'
+                setextradata:
+                    VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root: 1
+        provision:
+            puppet:
+                manifests_path: puppet/manifests
+                options:
+                    - --verbose
+                    - '--hiera_config /vagrant/hiera.yaml'
+                    - '--parser future'
+        synced_folder:
+            1kNP9yl9nVWE:
+                id: vagrant-root
+                source: ./
+                target: /usr/share/nginx/www/html/
+                nfs: 'true'
+        usable_port_range: 2200..2250
+    ssh:
+        host: null
+        port: null
+        private_key_path: null
+        username: vagrant
+        guest_port: null
+        keep_alive: true
+        forward_agent: false
+        forward_x11: false
+        shell: 'bash -l'
+    vagrant:
+        host: ':detect'
+server:
+    packages:
+        - vim-common
+        - npm
+    dot_files:
+        -
+            bash_aliases: null
+    _prevent_empty: ''
+nginx:
+    vhosts:
+        W7hR36wA0vSe:
+            server_name: sand.box
+            server_aliases:
+                - www.sand.box
+            www_root: /usr/share/nginx/www/html/
+            listen_port: '80'
+            index_files:
+                - index.html
+                - index.htm
+                - index.php
+            envvars:
+                - 'APP_ENV dev'
+php:
+    version: '55'
+    composer: '1'
+    modules:
+        php:
+            - cli
+            - intl
+            - mcrypt
+        pear: {  }
+        pecl:
+            - pecl_http
+            - redis
+            - gearman
+    ini:
+        display_errors: On
+        error_reporting: '-1'
+        session.save_path: /var/lib/php/session
+    timezone: America/Los_Angeles
+drush:
+    install: 0
+    settings:
+        drush.tag_branch: 6.x
+xdebug:
+    install: '1'
+    settings:
+        xdebug.default_enable: '1'
+        xdebug.remote_autostart: '0'
+        xdebug.remote_connect_back: '1'
+        xdebug.remote_enable: '1'
+        xdebug.remote_handler: dbgp
+        xdebug.remote_port: '7000'
+mysql:
+    root_password: root
+    phpmyadmin: 0
+    databases:
+        ON63NWPLob3R:
+            grant:
+                - ALL
+            name: sandbox
+            host: localhost
+            user: admin
+            password: root
+            sql_file: ''
