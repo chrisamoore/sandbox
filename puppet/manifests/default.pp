@@ -653,10 +653,10 @@ if has_key($mysql_values, 'adminer') and $mysql_values['adminer'] == 1 and is_ha
   }
 }
 
-class { 'puphpet::adminer':
-    location => "${mysql_adminer_webroot_location}/adminer",
-    owner    => 'www-data'
-}
+# class { 'puphpet::adminer':
+#     location => "${mysql_adminer_webroot_location}/adminer",
+#     owner    => 'www-data',
+# }
 
 class packs {
   package { "php-mbstring":
