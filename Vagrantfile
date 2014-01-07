@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder "./", "/usr/share/nginx/www/html", id: "vagrant-root", :nfs => true
 
-  config.vm.usable_port_range = (2200..2222)
+  config.vm.usable_port_range = (2201..2201)
 
   config.vm.provider :virtualbox do |virtualbox|
     virtualbox.customize ["modifyvm", :id, "--name", "sandbox"]

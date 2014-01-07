@@ -31,7 +31,7 @@ vagrantfile-local:
                 source: ./
                 target: /usr/share/nginx/www/html/
                 nfs: 'true'
-        usable_port_range: 2200..2250
+        usable_port_range: 2201..2201
     ssh:
         host: null
         port: null
