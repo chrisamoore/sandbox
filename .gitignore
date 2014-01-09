@@ -6,11 +6,7 @@ vhosts/gearmanui/logs/error.log
 vhosts/opcache-dashboard/logs/access.log
 *.log
 .DS_Store
-
 vhosts/beanstalk_console/
-
 vhosts/opcache-dashboard/
-
-kme/_ide_helper.php
-
-.idea/workspace.xml
+sandbox/_ide_helper.php
+.idea/*
