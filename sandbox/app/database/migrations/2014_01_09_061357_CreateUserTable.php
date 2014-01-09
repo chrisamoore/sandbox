@@ -11,7 +11,7 @@
          * @return void
          */
         public function up(){
-            Schema::table('user', function (Blueprint $table){
+            Schema::create('user', function (Blueprint $table){
                 $table->string("username")->nullable()->default(null);
                 $table->string("password")->nullable()->default(null);
                 $table->string("email")->nullable()->default(null);

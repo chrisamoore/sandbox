@@ -10,7 +10,7 @@
 /**
  * Class UserSeeder
  *  */
-class UserSeeder
+class UserSeeder extends DatabaseSeeder
 {
     public function run(){
         $users = [
