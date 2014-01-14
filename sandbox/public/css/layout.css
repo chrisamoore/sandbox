@@ -52,3 +52,12 @@ label, input, .error {
 .error {
     color : #ef7c61;
 }
+
+.help-block{
+    float: left;
+    clear: left;
+}
+
+.form-group.has-error .help-block{
+    color: #ef7c61;
+}

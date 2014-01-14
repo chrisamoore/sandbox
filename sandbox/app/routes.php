@@ -38,3 +38,18 @@ Route::group(["before"=>"auth"],function() {
         "uses" => "UserController@logoutAction"
 	]);
 });
+
+Route::any("/group/index",[
+	"as" => "group/index",
+	"uses" => "GroupController@indexAction"
+]);
+
+Route::any("/group/edit",[
+	"as" => "group/edit",
+	"uses" => "GroupController@editAction"
+]);
+
+Route::any("/group/delete",[
+	"as" => "group/delete",
+	"uses" => "GroupController@deleteAction"
+]);
