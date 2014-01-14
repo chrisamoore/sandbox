@@ -1,8 +1,8 @@
 <?php
-
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGroupUserTable extends Migration {
+class CreateGroupUserTable extends BaseMigration {
 
 	/**
 	 * Run the migrations.

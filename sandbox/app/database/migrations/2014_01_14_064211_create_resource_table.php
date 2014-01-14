@@ -1,8 +1,8 @@
 <?php
-
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResourceTable extends Migration {
+class CreateResourceTable extends BaseMigration {
 
 	/**
 	 * Run the migrations.
