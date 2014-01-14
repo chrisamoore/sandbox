@@ -32,12 +32,28 @@ App::after(function($request, $response)
 | integrates HTTP Basic authentication for quick, simple checking.
 |
 */
-
-Route::filter('auth', function()
+Route::filter("auth", function()
 {
-	if (Auth::guest()) return Redirect::guest('user/login');
-});
+    if (Auth::guest())
+    {
+        return Redirect::route("user/login");
+    }
+    else
+    {
+        foreach (Auth::user()->groups as $group)
+        {
+            foreach ($group->resources as $resource)
+            {
+                if ($resource->pattern == Route::getCurrentRoute()->getPath())
+                {
+                    return;
+                }
+            }
+        }
 
+        return Redirect::route("user/login");
+    }
+});
 
 Route::filter('auth.basic', function()
 {
@@ -78,3 +94,5 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+

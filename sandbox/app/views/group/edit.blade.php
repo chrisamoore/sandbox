@@ -13,6 +13,9 @@
         "value" => $group->name
 	]) }}
 
+    @include("user/assign")
+    @include("resource/assign")
+
     {{ Form::submit("save") }}
 {{ Form::close() }}
 @stop

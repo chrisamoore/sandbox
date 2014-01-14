@@ -13,4 +13,13 @@
 			'deleted_at'
 		];
 
+		public function resoources()
+		{
+			return $this->belongsToMany("Resource")->withTimestamps();
+		}
+
+		public function users()
+		{
+			return $this->belongsToMany("User")->withTimestamps();
+		}
 	}

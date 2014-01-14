@@ -35,9 +35,13 @@
 			$url = URL::full();
 
 			if ($form->isPosted()){
-				if ($form->isValidForEdit()) {
+				if($form->isValidForEdit()){
 					$group->name = Input::get("name");
 					$group->save();
+
+					$group->users()->sync(Input::get("user_id", []));
+					$group->resources()->sync(Input::get("resource_id", []));
+
 					return Redirect::route("group/index");
 				}
 
@@ -51,7 +55,9 @@
 
 			return View::make("group/edit", [
 				"form" => $form,
-				"group" => $group
+				"group" => $group,
+				"users" => User::all(),
+				"resources" => Resource::where("secure", true)->get()
 			]);
 		}
 
