@@ -14,3 +14,4 @@ vhosts/opcache-dashboard/
 kme/_ide_helper.php
 
 .idea/workspace.xml
+sandbox/*
