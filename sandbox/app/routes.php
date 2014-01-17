@@ -16,7 +16,7 @@ Route::get('/',['as' => 'home', function(){
 }]);
 
 Route::get('profile', function(){
-    return View::make('user.profile')->with(['data' => Auth::user()]);
+    return View::make('user.profile')->with(['user' => Auth::user()]);
 })->before('auth');
 
 Route::get('login', 'SessionsController@create');
