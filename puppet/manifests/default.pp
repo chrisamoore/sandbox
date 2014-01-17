@@ -659,6 +659,10 @@ if has_key($mysql_values, 'adminer') and $mysql_values['adminer'] == 1 and is_ha
 # }
 
 class packs {
+  package { "xsel":
+      ensure => installed,
+  }
+
   package { "php-mbstring":
     ensure => installed,
   }

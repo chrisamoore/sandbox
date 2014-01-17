@@ -42,6 +42,9 @@ alias lt='ls -lartF'
 alias lrt='ls -lrt'
 alias t='tree'
 
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+
 alias art='php artisan'
 alias home='cd ${HOME}'
 alias up='cd ..'

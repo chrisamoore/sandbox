@@ -11,7 +11,16 @@
 |
 */
 
-Route::get('/', function()
-{
+Route::get('/',['as' => 'home', function(){
 	return View::make('hello');
-});
+}]);
+
+Route::get('profile', function(){
+    return View::make('user.profile')->with(['data' => Auth::user()]);
+})->before('auth');
+
+Route::get('login', 'SessionsController@create');
+
+Route::get('logout', 'SessionsController@destroy');
+
+Route::resource('sessions', 'SessionsController', ['only' => ['store', 'create', 'delete' ]]);
